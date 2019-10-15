@@ -29,4 +29,8 @@ $(document).ready(function(){
                     }
                 });
             });
+
+            $("button.sign_out").click(function(){
+                location.replace("/index");
+            });
 });

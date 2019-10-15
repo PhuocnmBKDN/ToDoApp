@@ -22,6 +22,18 @@ var Todo = db.model('Todo', todoSchema);
 // ]
 
 module.exports = function(app){
+
+    app.get('/index', function(req, res){
+        res.render('login');
+    });
+
+    app.post('/index', function(req, res){
+        Todo.find({}, function(err, data){
+            if (err) throw err;
+            res.render('todo', {todos: data})
+        });
+    });
+
     app.get('/todo', function(req, res){
         // get data from mongodb and show it
         Todo.find({}, function(err, data){
